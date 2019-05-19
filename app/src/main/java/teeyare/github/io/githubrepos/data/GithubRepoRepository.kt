@@ -3,8 +3,12 @@ package teeyare.github.io.githubrepos.data
 import teeyare.github.io.githubrepos.domain.GithubRepo
 
 class GithubRepoRepository(
-    val persistenceSource: GithubRepoPersistenceSource,
-    val remoteSource: GithubRepoRemoteSource
+    private val persistenceSource: GithubRepoPersistenceSource,
+    private val remoteSource: GithubRepoRemoteSource
 ) {
-    fun getGithubRepositories(): List<GithubRepo> = persistenceSource.getGithubRepositories()
+    suspend fun getGithubRepositories(): List<GithubRepo> {
+        val repos = remoteSource.fetchGithubRepositories()
+        persistenceSource.addGithubRepositories(repos)
+        return persistenceSource.getGithubRepositories()
+    }
 }

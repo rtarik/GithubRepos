@@ -1,4 +1,4 @@
-package teeyare.github.io.githubrepos.data
+package teeyare.github.io.githubrepos.framework
 
 import androidx.lifecycle.LiveData
 import retrofit2.http.GET
