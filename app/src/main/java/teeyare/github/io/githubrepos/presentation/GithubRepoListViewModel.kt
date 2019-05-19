@@ -1,4 +1,4 @@
-package teeyare.github.io.githubrepos
+package teeyare.github.io.githubrepos.presentation
 
 import androidx.lifecycle.ViewModel;
 
