@@ -1,8 +1,9 @@
 package teeyare.github.io.githubrepos.data
 
 import teeyare.github.io.githubrepos.domain.GithubRepo
+import javax.inject.Inject
 
-class GithubRepoRepository(
+class GithubRepoRepository @Inject constructor(
     private val persistenceSource: GithubRepoPersistenceSource,
     private val remoteSource: GithubRepoRemoteSource
 ) {

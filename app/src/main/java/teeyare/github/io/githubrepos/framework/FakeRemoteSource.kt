@@ -3,8 +3,9 @@ package teeyare.github.io.githubrepos.framework
 import kotlinx.coroutines.delay
 import teeyare.github.io.githubrepos.data.GithubRepoRemoteSource
 import teeyare.github.io.githubrepos.domain.GithubRepo
+import javax.inject.Inject
 
-class FakeRemoteSource : GithubRepoRemoteSource {
+class FakeRemoteSource @Inject constructor() : GithubRepoRemoteSource {
     override suspend fun fetchGithubRepositories(): List<GithubRepo> {
             delay(5000)
             return (1..50).map {
