@@ -6,8 +6,8 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import teeyare.github.io.githubrepos.data.GithubRepoPersistenceSource
 import teeyare.github.io.githubrepos.data.GithubRepoRemoteSource
-import teeyare.github.io.githubrepos.framework.FakeRemoteSource
 import teeyare.github.io.githubrepos.framework.InMemoryPersistenceSource
+import teeyare.github.io.githubrepos.framework.RetrofitRemoteSource
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -16,5 +16,5 @@ abstract class DataSourceModule {
     abstract fun bindPersistenceSource(implementation: InMemoryPersistenceSource): GithubRepoPersistenceSource
 
     @Binds
-    abstract fun bindRemoteSource(implementation: FakeRemoteSource): GithubRepoRemoteSource
+    abstract fun bindRemoteSource(implementation: RetrofitRemoteSource): GithubRepoRemoteSource
 }
